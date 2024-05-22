@@ -33,7 +33,7 @@ Col 1~8 | Col 9~16
 ```cpp
 #include "Matrix16.h"
 // 假定你使用D11作为MOSI，D13作为CLK，A3作为CS
-matrix Mtrx(D11,D13,A3);
+matrix_16 Mtrx(D11,D13,A3);
 int main(void) {
     // 作者人工取模的HelloWorld字样
     // HelloWorld方法里自动进行了一次SendBuffer
@@ -45,10 +45,10 @@ int main(void) {
 
 ```cpp
 #include "Matrix16.h"
-matrix Mtrx(D11,D13,A3);
+matrix_16 Mtrx(D11,D13,A3);
 // 这个实际上是array<uint16_t,16>的别名
 // 可以理解为uint16_t Frm[16];
-matrix::frame Frm = {
+matrix_16::frame Frm = {
     0xFFFF, 0x0000, 0xFFFF, 0x0000,
     0xFFFF, 0x0000, 0xFFFF, 0x0000,
     0xFFFF, 0x0000, 0xFFFF, 0x0000,
