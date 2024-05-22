@@ -52,10 +52,10 @@ matrix_16::frame Frm = {
     0xFFFF, 0x0000, 0xFFFF, 0x0000,
     0xFFFF, 0x0000, 0xFFFF, 0x0000,
     0xFFFF, 0x0000, 0xFFFF, 0x0000,
-    0xFFFF, 0x0000, 0xFFFF, 0x0000,
+    0xFFFF, 0x0000, 0xFFFF, 0x0000
 };
 int main(void) {
-    // Mtrx.buffer其实就是一个长度为8的uint8_t数组，1代表对应位置亮，0代表对应位置灭
+    // Mtrx.buffer其实就是一个长度为16的uint16_t数组，1代表对应位置亮，0代表对应位置灭
     // 数组序号对应行号，MSB到LSB分别是从左到右的灯珠
     Mtrx.buffer = Frm;
     Mtrx.SendBuffer();
@@ -66,15 +66,15 @@ int main(void) {
 
 这个库默认使用软件模拟SPI，也可以通过修改头文件使用硬件SPI
 
-具体修改方法是：把Matirx.h文件的第23行的`#define _Matrix_16_Using_Simulated_SPI_`语句删除或注释掉
+具体修改方法是：把Matirx16.h文件的第**31**行的`#define _Matrix_16_Using_Simulated_SPI_`语句删除或注释掉
 
 需要注意的是，软件SPI没有对引脚的要求，只要支持GPIO即可；硬件SPI需要对应上对应的SPI引脚组合
 
-顺带一提，翻了代码的人会发现我在Matrix16.cpp的第三行加了一句`#define _CATEDS_My_Board_Is_Designed_Wrongly_` ~~,这是因为我自己画的模块的连线连错了只能软件兼容，默认是被注释掉的，可以不用在意它。~~
+顺带一提，翻了代码的人会发现我在Matrix16.cpp的第3行加了一句`#define _CATEDS_My_Board_Is_Designed_Wrongly_` ~~,这是因为我自己画的模块的连线连错了只能软件兼容，默认是被注释掉的，可以不用在意它。~~
 
 ### 类的各个方法的介绍
 
-#### `matrix(PinName Matrix_IO_MOSI, PinName Matrix_IO_CLK,  PinName Matrix_IO_CS)`
+#### `matrix_16(PinName Matrix_IO_MOSI, PinName Matrix_IO_CLK,  PinName Matrix_IO_CS)`
 
 类的构造函数
 
