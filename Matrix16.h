@@ -52,7 +52,6 @@ private:
         Shutdown    = 0b1100,
         DisplayTest = 0b1111
     };
-    //陈星昊
 
     /**
      * @brief The Frequency of the SPI Communication.
