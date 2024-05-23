@@ -1,7 +1,7 @@
 /**
- * @file Matrix.h
+ * @file Matrix16.h
  * @author CATEDS
- * @brief A class designed for the 16*16 LED matrix_8 module
+ * @brief A class designed for the 16*16 LED matrix_16 module
  *        with the connection of SPI and drived by MAX7219
  *        The order of the four 8*8 led matrix should be:
  *          1 | 2
